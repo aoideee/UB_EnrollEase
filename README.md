@@ -29,15 +29,6 @@ cd UB_EnrollEase
 
 # 2. Install dependencies
 npm install
-
-# 3. Create a .env file at project root with your database URL
-#    (or set DATABASE_URL in your environment)
-# Example .env:
-# DATABASE_URL=postgres://user:password@localhost:5432/yourdb
-echo "DATABASE_URL=postgres://user:password@localhost:5432/yourdb" > .env
-
-# 4. Create your database tables (run SQL in src/config or via psql)
-psql $DATABASE_URL -f src/config/schema.sql
 ```
 ---
 
