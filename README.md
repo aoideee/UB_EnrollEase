@@ -17,6 +17,10 @@ This repository contains a sample enrollment system converted from C++ into Type
 1. **Node.js** (v18 or higher) and **npm**
 2. **PostgreSQL** (and a database for this app)
 3. **Git** (for cloning the repo)
+4. **TypeScript compiler and tooling**
+``` bash
+npm install --save-dev typescript ts-node ts-node-dev @types/node @types/express @types/ejs
+```
 
 ---
 
@@ -90,6 +94,11 @@ Runs the compiled dist/server.js under Node.js.
 ---
 
 ## Notes
+- To run the TypeScript directly without building, you can use:
+
+  ```bash
+  npx ts-node src/server.ts
+  ```
 - Ensure your ```.env``` is listed in ```.gitignore``` (it is by default).
 - Use ```npm run dev``` during active development; ```npm run build && npm start``` for production.
 - Modify ```src/config/schema.sql``` to adjust your database schema as needed.
