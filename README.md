@@ -39,6 +39,7 @@ echo "DATABASE_URL=postgres://user:password@localhost:5432/yourdb" > .env
 # 4. Create your database tables (run SQL in src/config or via psql)
 psql $DATABASE_URL -f src/config/schema.sql
 ```
+---
 
 ## Development
 ```bash
@@ -49,6 +50,8 @@ npm run dev
 
 ```
 
+---
+
 ## Build & Production
 ```bash 
 # 1. Compile TypeScript to JavaScript
@@ -58,6 +61,8 @@ npm run build   # emits JS into dist/
 npm start       # runs dist/server.js
 
 ```
+
+---
 
 ## Project Structure
 ```bash 
@@ -79,6 +84,8 @@ UB_EnrollEase/
 
 ```
 
+---
+
 ## npm Scripts
 - ```npm run dev```
 Launches the app in development mode with ts-node-dev (hot reload).
@@ -89,7 +96,9 @@ Compiles all .ts files in src/ into .js in dist/ (CommonJS modules).
 - ```npm start```
 Runs the compiled dist/server.js under Node.js.
 
+---
+
 ## Notes
-- Ensure your ```.env```` is listed in ```.gitignore``` (it is by default).
+- Ensure your ```.env``` is listed in ```.gitignore``` (it is by default).
 - Use ```npm run dev``` during active development; ```npm run build && npm start``` for production.
 - Modify ```src/config/schema.sql``` to adjust your database schema as needed.
