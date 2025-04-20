@@ -38,3 +38,55 @@ echo "DATABASE_URL=postgres://user:password@localhost:5432/yourdb" > .env
 
 # 4. Create your database tables (run SQL in src/config or via psql)
 psql $DATABASE_URL -f src/config/schema.sql
+```
+
+## Development
+```bash
+# Run in watch mode (auto-reload)
+npm run dev
+
+# Open http://localhost:3000 in your browser
+
+```
+
+## Build & Production
+```bash 
+# 1. Compile TypeScript to JavaScript
+npm run build   # emits JS into dist/
+
+# 2. Start the compiled server
+npm start       # runs dist/server.js
+
+```
+
+## Project Structure
+```bash 
+UB_EnrollEase/
+├─ src/
+│  ├─ config/         # SQL schema, app configuration
+│  ├─ models/         # Domain classes (TS implementations)
+│  ├─ services/       # Database connection & business logic
+│  ├─ controllers/    # Express request handlers
+│  ├─ routes/         # Route definitions
+│  ├─ views/          # EJS templates
+│  ├─ app.ts          # Express + EJS setup
+│  └─ server.ts       # Server bootstrap
+├─ dist/              # Compiled JS (after `npm run build`)
+├─ .env               # Environment variables (not committed)
+├─ package.json       # npm metadata & scripts
+├─ tsconfig.json      # TypeScript compiler options
+└─ README.md          # This file
+
+```
+
+## npm Scripts
+- ```npm run dev```
+Launches the app in development mode with ts-node-dev (hot reload).
+
+- ```npm run build```
+Compiles all .ts files in src/ into .js in dist/ (CommonJS modules).
+
+- ```npm start```
+Runs the compiled dist/server.js under Node.js.
+
+## Notes
