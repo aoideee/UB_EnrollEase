@@ -90,3 +90,6 @@ Compiles all .ts files in src/ into .js in dist/ (CommonJS modules).
 Runs the compiled dist/server.js under Node.js.
 
 ## Notes
+- Ensure your ```.env```` is listed in ```.gitignore``` (it is by default).
+- Use ```npm run dev``` during active development; ```npm run build && npm start``` for production.
+- Modify ```src/config/schema.sql``` to adjust your database schema as needed.
