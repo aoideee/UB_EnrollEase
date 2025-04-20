@@ -1,0 +1,80 @@
+[
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/main.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/main.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/main.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/main.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Action.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Action.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Action.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Action.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Administrator.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Administrator.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Administrator.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Administrator.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Authentication.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Authentication.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Authentication.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Authentication.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Courses.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Courses.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Courses.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Courses.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Department.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Department.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Department.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Department.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Enrollment.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Enrollment.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Enrollment.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Enrollment.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Professor.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Professor.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Professor.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Professor.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/Student.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Student.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/Student.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/Student.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/SystemManager.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/SystemManager.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/SystemManager.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/SystemManager.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/User.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/User.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/User.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/User.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/cmake-build-debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/cmake-build-debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/cmake-build-debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/cmake-build-debug/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
+},
+{
+  "directory": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build",
+  "command": "/usr/bin/g++  -I/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase -g -std=gnu++14 -o CMakeFiles/EnrollEase.dir/EnrollEase/main.cpp.o -c /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/main.cpp",
+  "file": "/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/EnrollEase/main.cpp",
+  "output": "CMakeFiles/EnrollEase.dir/EnrollEase/main.cpp.o"
+}
+]

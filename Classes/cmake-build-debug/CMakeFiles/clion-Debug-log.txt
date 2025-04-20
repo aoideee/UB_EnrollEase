@@ -1,0 +1,4 @@
+/home/eudora/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/eudora/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes -B /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/cmake-build-debug
