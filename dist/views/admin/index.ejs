@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University of Belize EnrollEase</title>
+    <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="admin-login-page">
+    <header class="admin-header">
+      <div class="header-content"></div>
+    </header>
+
+    <main class="admin-login-container">
+      <div class="admin-auth-box">
+        <div class="admin-logo">
+          <img
+            src="/images/logo.jpg"
+            alt="University of Belize | Education Empowers a Nation"
+            width="275"
+            height="325"
+          />
+          <h2>Administrator Portal</h2>
+        </div>
+
+        <form action="/auth/login" method="POST" class="admin-login-form">
+          <% if (typeof error !== 'undefined' && error) { %>
+          <div class="admin-error-message"><%= error %></div>
+          <% } %>
+
+          <div class="form-group">
+            <label for="adminEmail">Institutional Email</label>
+            <input
+              type="email"
+              id="adminEmail"
+              name="email"
+              required
+              placeholder="admin@ub.edu.bz"
+              autocomplete="username"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <input
+              type="password"
+              id="adminPassword"
+              name="password"
+              required
+              minlength="10"
+              autocomplete="current-password"
+            />
+            <p class="password-hint">Minimum 10 characters</p>
+          </div>
+
+          <div class="form-options">
+            <div class="remember-me">
+              <input type="checkbox" id="rememberMe" name="rememberMe" />
+              <label for="rememberMe">Remember me</label>
+            </div>
+            <a href="/admin/forgot-password" class="forgot-password"
+              >Forgot Password?</a
+            >
+          </div>
+
+          <button type="submit" class="admin-login-btn">Log In</button>
+
+          <div class="admin-security-note">
+            <span>Secure admin portal. Unauthorized access prohibited.</span>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="admin-footer">
+      <p>
+        University of Belize &copy; <%= new Date().getFullYear() %> |
+        Administrative Systems
+      </p>
+    </footer>
+  </body>
+</html>

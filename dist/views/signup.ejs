@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University of Belize EnrollEase</title>
+    <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="landing-container">
+      <div class="auth-container">
+        <div class="university-header">
+          <img
+            src="/images/logo.jpg"
+            alt="University of Belize | Education Empowers a Nation"
+            width="275" height="325"
+          />
+        </div>
+        <h2>Create Account</h2>
+
+        <form action="/signup" method="POST">
+          <!-- Personal Information -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required />
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <!-- Password Fields -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Account Type -->
+          <div class="form-group">
+            <label for="accountType">I am a:</label>
+            <select id="accountType" name="accountType" required>
+              <option value="">Select account type</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
+
+          <!-- Student-specific fields (hidden by default) -->
+          <div id="studentFields" class="account-fields" style="display: none">
+            <div class="form-group">
+              <label for="major">Major</label>
+              <input type="text" id="major" name="major" />
+            </div>
+          </div>
+
+          <!-- Teacher-specific fields (hidden by default) -->
+          <div id="teacherFields" class="account-fields" style="display: none">
+            <div class="form-group">
+              <label for="department">Department</label>
+              <input type="text" id="department" name="department" />
+            </div>
+          </div>
+
+          <!-- Terms Agreement -->
+          <div class="form-group terms">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
+            <label for="agreeTerms"
+              >I agree to the <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a></label
+            >
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="signup-btn">Sign Up</button>
+
+          <p class="login-link">
+            Already have an account? <a href="/">Log in</a>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="/js/signup.js"></script>
+  </body>
+</html>

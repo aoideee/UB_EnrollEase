@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/overview.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <%= user.name %>!</h1>
+        <nav>
+            <a href="/overview">Home</a>
+            <a href="/auth/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Home Page</h2>
+        <p>ID: <%= user.id %></p>
+        <p>Role: <%= user.role %></p>
+        <p>Department: <%= user.department %></p>
+    </main>
+</body>
+</html>

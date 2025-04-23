@@ -1,0 +1,197 @@
+/* Signup Page - Modern CSS Grid & Flexbox Implementation */
+:root {
+  --signup-primary: purple;
+  --signup-primary-hover: darkorchid;
+  --signup-secondary: darkmagenta;
+  --signup-bg: #f9f9f9;
+  --signup-text: #333;
+  --signup-light-text: #666;
+  --signup-white: white;
+  --signup-error: #d32f2f;
+  --signup-border: 1px solid #ddd;
+  --signup-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --signup-transition: all 0.3s ease;
+}
+
+/* Form Layout - Grid */
+.signup-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Form Row - Flexbox */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Form Group - Grid Layout */
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* Custom Select - Flexbox */
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+select {
+  width: 100%;
+  padding: 0.8rem;
+  padding-right: 2rem;
+  border: var(--signup-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--signup-white);
+  appearance: none;
+  transition: var(--signup-transition);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--signup-primary);
+  box-shadow: 0 0 0 2px rgba(128, 0, 128, 0.2);
+}
+
+/* Custom dropdown arrow */
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  right: 1rem;
+  font-size: 0.7rem;
+  color: var(--signup-light-text);
+  pointer-events: none;
+}
+
+/* Terms Checkbox - Flexbox */
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.terms input {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.terms label {
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.terms a {
+  color: var(--signup-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--signup-transition);
+}
+
+.terms a:hover {
+  color: var(--signup-primary-hover);
+  text-decoration: underline;
+}
+
+/* Signup Button */
+.signup-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--signup-primary);
+  color: var(--signup-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--signup-transition);
+  display: grid;
+  place-items: center;
+}
+
+.signup-btn:hover {
+  background: var(--signup-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--signup-shadow);
+}
+
+/* Login Link - Flexbox */
+.login-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: var(--signup-light-text);
+}
+
+.login-link a {
+  color: var(--signup-secondary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--signup-transition);
+  display: inline-flex;
+  align-items: center;
+}
+
+.login-link a:hover {
+  color: var(--signup-primary);
+  text-decoration: underline;
+}
+
+/* Account-specific Fields */
+.account-fields {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--signup-bg);
+  border-radius: 4px;
+  border-left: 4px solid var(--signup-primary);
+  display: grid;
+  gap: 1rem;
+}
+
+/* Form Helpers */
+.password-hint {
+  font-size: 0.8rem;
+  color: var(--signup-light-text);
+}
+
+.error-message {
+  color: var(--signup-error);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.error-message::before {
+  content: "⚠";
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .terms {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .account-fields {
+    padding: 0.8rem;
+  }
+  
+  .login-link {
+    flex-direction: column;
+  }
+}

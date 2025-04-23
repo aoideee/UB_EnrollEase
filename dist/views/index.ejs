@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University of Belize EnrollEase</title>
+    <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="landing-container">
+      <div class="auth-container">
+        <div class="university-header">
+          <img
+            src="/images/logo.jpg"
+            alt="University of Belize | Education Empowers a Nation"
+            width="275" height="325"
+          />
+        </div>
+        <form action="/auth/login" method="POST">
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <!-- Login Button -->
+          <button type="submit" class="login-btn">Log in</button>
+
+          <!-- Forgot Password Link -->
+          <div class="forgot-password-container">
+            <a href="/forgot-password" class="forgot-password"
+              >Forgot password?</a
+            >
+          </div>
+
+          <p class="login-subtitle">Log in using your account on:</p>
+
+          <!-- Google Login Button -->
+          <a href="#" class="google-login-btn">
+            <img src="/images/google-logo.jpg" width="25" height="25" alt="Google Logo" />
+            <span>Google</span>
+          </a>
+
+          <p class="signup-link">
+            Don't have an account? <a href="/signup">Signup</a>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

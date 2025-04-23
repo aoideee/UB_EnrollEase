@@ -1,0 +1,230 @@
+/* Admin Login Page - Modern CSS Grid & Flexbox Implementation */
+:root {
+  --admin-primary: purple;
+  --admin-primary-hover: darkorchid;
+  --admin-secondary: darkmagenta;
+  --admin-bg: #fdedde;
+  --admin-text: #333;
+  --admin-light-text: #666;
+  --admin-white: white;
+  --admin-error: #d32f2f;
+  --admin-error-bg: #fdecea;
+  --admin-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --admin-border: 1px solid #ddd;
+  --admin-transition: all 0.3s ease;
+}
+
+/* Base Layout with CSS Grid */
+.admin-login-page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  background-color: var(--admin-primary);
+}
+
+/* Header Section */
+.admin-header {
+  background-color: var(--admin-primary);
+  color: var(--admin-white);
+  padding: 1.5rem 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+}
+
+.admin-header .motto {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  opacity: 0.9;
+}
+
+/* Main Content - Centered with Grid */
+.admin-login-container {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+/* Auth Box - Grid Layout */
+.admin-auth-box {
+  background: var(--admin-bg);
+  border-radius: 8px;
+  box-shadow: var(--admin-shadow);
+  width: min(100%, 450px);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Logo Section - Flexbox */
+.admin-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-logo svg {
+  width: 48px;
+  height: 48px;
+  fill: var(--admin-primary);
+}
+
+.admin-logo h2 {
+  margin: 0;
+  color: var(--admin-primary);
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+}
+
+/* Form Layout - Grid */
+.admin-login-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Form Elements */
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--admin-text);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: var(--admin-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: var(--admin-transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 2px rgba(128, 0, 128, 0.2);
+}
+
+/* Error Message */
+.admin-error-message {
+  background-color: var(--admin-error-bg);
+  color: var(--admin-error);
+  padding: 0.8rem;
+  border-radius: 4px;
+  border-left: 4px solid var(--admin-error);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Options - Flexbox */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.forgot-password {
+  color: var(--admin-secondary);
+  text-decoration: none;
+  transition: var(--admin-transition);
+}
+
+.forgot-password:hover {
+  color: var(--admin-primary);
+  text-decoration: underline;
+}
+
+/* Button Styles */
+.admin-login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--admin-primary);
+  color: var(--admin-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--admin-transition);
+  display: grid;
+  place-items: center;
+}
+
+.admin-login-btn:hover {
+  background-color: var(--admin-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Security Note - Flexbox */
+.admin-security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--admin-light-text);
+}
+
+/* Footer */
+.admin-footer {
+  background-color: var(--admin-primary);
+  color: var(--admin-white);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .admin-login-container {
+    padding: 1rem;
+  }
+
+  .admin-auth-box {
+    padding: 1.5rem;
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 1rem;
+  }
+
+  .admin-auth-box {
+    padding: 1.25rem;
+  }
+
+  .admin-login-form {
+    gap: 1rem;
+  }
+}
