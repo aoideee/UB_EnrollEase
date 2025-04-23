@@ -3,5 +3,7 @@ dist/controllers
 dist/models
 dist/routes
 dist/services
+dist/app.js
+dist/app.js.map
 node_modules/
 package-lock.json
