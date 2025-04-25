@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Student Home</title>
     <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
     <header>
         <h1>Welcome, <%= user.name %>!</h1>
-        <nav>
-            <a href="/home">Home</a>
-            <a href="/auth/logout">Logout</a>
-        </nav>
+        <p>ID: <%= user.id %> | <%= user.major %></p>
     </header>
+    
+    <nav class="mobile-nav">
+        <a href="/home" class="nav-button">Home</a>
+        <a href="/profile" class="nav-button">Profile</a>
+        <a href="/courses" class="nav-button">Course Search</a>
+        <a href="/grades" class="nav-button">Grades/Reports</a>
+        <a href="/auth/logout" class="nav-button logout">Logout</a>
+    </nav>
+    
     <main>
-        <h2>Home Page</h2>
-        <p>ID: <%= user.id %></p>
-        <p>Role: <%= user.role %></p>
-        <p>Major: <%= user.major %></p>
+        <div class="user-info">
+            <h2>Quick Info</h2>
+            <p>Role: <%= user.role %></p>
+            <p>Major: <%= user.major %></p>
+        </div>
     </main>
+    
+    <footer>
+        University of Belize © 2025 | UB EnrollEase
+    </footer>
 </body>
 </html>
