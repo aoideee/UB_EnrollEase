@@ -8,9 +8,10 @@ export class Admin extends User {
     lastName: string,
     email: string,
     password: string,
+    public readonly adminID: string, // Marked as readonly as it shouldn't change
     public accessLevel: number
   ) {
-    super(id, firstName, lastName, email, password);
+    super(id, firstName, lastName, email, password, 'admin'); // Explicit role
   }
 
   override getRole(): string {

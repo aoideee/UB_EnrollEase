@@ -21,12 +21,14 @@ export class AuthController {
 
       SessionManager.login(req, user);
       switch (user.getRole()) {
-        case 'Admin':
+        case 'admin':
           return res.redirect('/admin/dashboard');
-        case 'Professor':
+        case 'professor':
           return res.redirect('/overview');
-        default:
+        case 'student':
           return res.redirect('/home');
+        default:
+          return res.redirect('/');
       }
 
     } catch (error) {
@@ -41,6 +43,6 @@ export class AuthController {
   logout(req: Request, res: Response) {
     const user = req.session.user; // Assuming the user is stored in the session
     SessionManager.logout(req);
-    return res.redirect(user?.role.startsWith('Admin') ? '/admin/' : '/');
+    return res.redirect(user?.role.startsWith('admin') ? '/admin/' : '/');
   }
 }

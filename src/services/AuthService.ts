@@ -50,6 +50,7 @@ export class AuthService {
       baseData.last_name,
       baseData.email,
       baseData.password_hash,
+      adminData.admin_id,
       adminData.access_level
     );
   }
