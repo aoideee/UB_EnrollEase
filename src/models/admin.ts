@@ -15,6 +15,6 @@ export class Admin extends User {
   }
 
   override getRole(): string {
-    return "Admin";
+    return "admin";
   }
 }
