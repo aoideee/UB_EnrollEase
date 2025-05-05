@@ -28,7 +28,7 @@ npm install --save-dev typescript ts-node ts-node-dev @types/node @types/express
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/UB_EnrollEase.git
+git clone https://github.com/aoideee/UB_EnrollEase.git
 cd UB_EnrollEase
 
 # 2. Install dependencies
