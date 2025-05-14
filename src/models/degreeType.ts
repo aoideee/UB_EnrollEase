@@ -5,12 +5,4 @@ export class DegreeType {
         public readonly level: string,      // e.g. 'Associates'
         public readonly department: string
     ) {}
-
-    toString(): string {
-        return `${this.level} in ${this.name}`;
-    }
-
-    get fullName(): string {
-        return `${this.code} - ${this.level} in ${this.name}`;
-    }
 }

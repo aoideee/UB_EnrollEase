@@ -5,6 +5,7 @@ import { connectDB } from './config/db.js';
 import indexRouter from './routes/indexRoutes.js';
 import adminRouter from './routes/adminRoutes.js';
 import authRouter from './routes/authRoutes.js';
+import profileRoutes from './routes/profileRoutes.js';
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.use(express.static(path.join(process.cwd(), "dist/public")));
 // View engine setup
 app.set('view engine', 'ejs');
 app.set("views", [path.join(process.cwd(), 'dist/views'),
-path.join(process.cwd(), 'dist/views/home'),
+path.join(process.cwd(), 'dist/views/student'),
 path.join(process.cwd(), 'dist/views/overview'),
 path.join(process.cwd(), 'dist/views/admin/'),
 path.join(process.cwd(), 'dist/views/partials/')]);
@@ -39,6 +40,7 @@ path.join(process.cwd(), 'dist/views/partials/')]);
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
+app.use('/student', profileRoutes);
 
 // Error handling
 app.use((req, res, next) => {

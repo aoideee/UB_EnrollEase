@@ -13,8 +13,8 @@ export const renderSignupPage = (req: Request, res: Response) => {
     res.render('signup');
 };
 
-export const renderHomePage = (req: Request, res: Response) => {
-    res.render('home', { user: req.session.user });
+export const renderStudentPage = (req: Request, res: Response) => {
+    res.render('student', { user: req.session.user });
 };
 
 export const renderOverviewPage = (req: Request, res: Response) => {

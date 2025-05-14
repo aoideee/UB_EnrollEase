@@ -1,11 +1,10 @@
 export class Courses {
     constructor(
-        public readonly semesterId: string,
         public readonly courseId: string,
         public courseName: string,
         public courseDescription: string,
-        public courseInstructor: string,  // faculty_id from professors table
         public department: string,        // department_name from departments table
+        public courseInstructor: string,  // faculty_id from professors table
         public courseSchedule: string,
         public startDate: Date,           // Changed to Date type
         public endDate: Date,             // Changed to Date type
@@ -13,8 +12,10 @@ export class Courses {
         public courseLocation: string,
         public courseCredits: number,
         public courseCapacity: number,
+        public readonly semesterId: string,
         public prerequisites: string[],    // array of courseIds
-        public corequisites: string[]     // array of courseIds
+        public corequisites: string[],     // array of courseIds
+        public degreeCode: string // New field to associate courses with degrees
     ) { }
 
     // Getter methods

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <header>
+        <h1>Profile</h1>
+        <a href="/student">Back to Home</a>
+    </header>
+
+    <main>
+        <form action="/profile" method="POST">
+            <div class="profile-section">
+                <label>Name Prefix:</label>
+                <span>Mr./Ms.</span>
+            </div>
+            <div class="profile-section">
+                <label>First Name:</label>
+                <span><%= user.first_name %></span>
+            </div>
+            <div class="profile-section">
+                <label>Last Name:</label>
+                <span><%= user.last_name %></span>
+            </div>
+            <div class="profile-section">
+                <label>Mailing Address:</label>
+                <span><%= user.address %>, <%= user.city %>, <%= user.state %>, <%= user.country %></span>
+            </div>
+            <div class="profile-section">
+                <label>Email Address:</label>
+                <span><%= user.email %></span>
+            </div>
+            <div class="profile-section">
+                <label>Birth Date:</label>
+                <span><%= user.birth_date %></span>
+            </div>
+            <div class="profile-section">
+                <label>Gender:</label>
+                <span><%= user.gender %></span>
+            </div>
+            <div class="profile-section">
+                <label>Ethnicity:</label>
+                <span><%= user.ethnicity %></span>
+            </div>
+
+            <h2>Edit Username/Password</h2>
+            <% if (error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+            <div class="profile-section">
+                <label for="username">User Name:</label>
+                <input type="text" id="username" name="username" value="<%= user.email %>" required>
+            </div>
+            <div class="profile-section">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="profile-section">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </main>
+
+    <footer>
+        University of Belize © 2025 | UB EnrollEase
+    </footer>
+</body>
+</html>

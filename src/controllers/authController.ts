@@ -26,7 +26,7 @@ export class AuthController {
         case 'professor':
           return res.redirect('/overview');
         case 'student':
-          return res.redirect('/home');
+          return res.redirect('/student');
         default:
           return res.redirect('/');
       }

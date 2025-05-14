@@ -15,7 +15,7 @@ export class SessionManager {
         ...(user instanceof Admin && { accessLevel: (user as Admin).accessLevel }),
         ...(user instanceof Professor && { department: (user as Professor).department }),
         ...(user instanceof Student && user.degree && { 
-            degreeCode: user.degree, 
+            degreeCode: user.degree.code, 
             degreeName: user.degree.name,
             degreeLevel: user.degree.level 
         })
@@ -29,7 +29,7 @@ export class SessionManager {
         ...(user instanceof Admin && { accessLevel: (user as Admin).accessLevel }),
         ...(user instanceof Professor && { department: (user as Professor).department }),
         ...(user instanceof Student && user.degree && { 
-            degreeCode: user.degree, 
+            degreeCode: user.degree.code, 
             degreeName: user.degree.name,
             degreeLevel: user.degree.level 
         })

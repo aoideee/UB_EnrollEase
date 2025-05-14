@@ -2,8 +2,9 @@
 import { query } from '../config/db.js';
 import { User } from '../models/user.js';
 import { Admin } from '../models/admin.js';
-import { Student } from '../models/student.js';
 import { Professor } from '../models/professor.js';
+import { Student } from '../models/student.js';
+import { DegreeType } from '../models/degreeType.js';
 
 export class AuthService {
   async authenticate(email: string, password: string): Promise<User | null> {
@@ -72,20 +73,34 @@ export class AuthService {
   }
 
   private async createStudent(baseData: any): Promise<Student> {
-    const result = await query(`SELECT * FROM students WHERE student_id = $1`, [baseData.id]);
+    const result = await query(`
+        SELECT s.*, d.degree_name, d.degree_level, d.department 
+        FROM students s
+        JOIN degree_types d ON s.degree_code = d.degree_code
+        WHERE s.student_id = $1
+    `, [baseData.id]);
+    
     const studentData = result.rows[0];
 
-    return new Student(
-      baseData.id,
-      baseData.first_name,
-      baseData.last_name,
-      baseData.email,
-      baseData.password_hash,
-      studentData.student_id,
-      studentData.degree_code,
-      studentData.enrollment_date,
-      studentData.gpa,
-      studentData.expectedGraduation,
+    // Create DegreeType instance first
+    const degree = new DegreeType(
+        studentData.degree_code,
+        studentData.degree_name,
+        studentData.degree_level,
+        studentData.department
     );
-  }
+
+    return new Student(
+        baseData.id,
+        baseData.first_name,
+        baseData.last_name,
+        baseData.email,
+        baseData.password_hash,
+        studentData.student_id,
+        degree, // Now passing a DegreeType object
+        new Date(studentData.enrollment_date),
+        studentData.expected_graduation ? new Date(studentData.expected_graduation) : undefined,
+        studentData.gpa
+    );
+}
 }

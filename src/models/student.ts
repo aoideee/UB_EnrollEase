@@ -22,17 +22,8 @@ export class Student extends User {
     return "student"; // Consistent lowercase to match database enum
   }
 
-  // Student-specific methods
-  get academicStatus(): string {
-    let status = `${this.degree.level} student in ${this.degree.name}`;
-    if (this.gpa) status += ` | GPA: ${this.gpa.toFixed(2)}`;
-    if (this.expectedGraduation) {
-      status += ` | Expected ${this.expectedGraduation.getFullYear()}`;
-    }
-    return status;
-  }
-
-  public getDegreeCode(): string {
-    return this.degree.code;
+  // Utility method to check if the student is on track to graduate
+  isOnTrackToGraduate(currentDate: Date = new Date()): boolean {
+    return this.expectedGraduation ? currentDate <= this.expectedGraduation : false;
   }
 }
