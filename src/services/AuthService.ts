@@ -82,9 +82,10 @@ export class AuthService {
       baseData.email,
       baseData.password_hash,
       studentData.student_id,
-      studentData.major,
+      studentData.degree_code,
       studentData.enrollment_date,
-      studentData.gpa
+      studentData.gpa,
+      studentData.expectedGraduation,
     );
   }
 }

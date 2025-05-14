@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overview</title>
+    <title>Lecturer Overview</title>
     <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="/css/overview.css">
 </head>
 <body>
     <header>
         <h1>Welcome, <%= user.name %>!</h1>
-        <nav>
-            <a href="/overview">Home</a>
-            <a href="/auth/logout">Logout</a>
-        </nav>
+        <p>ID: <%= user.id %> | <%= user.accessLevel %></p>
     </header>
+
+    <nav class="mobile-nav">
+      <a href="/overview/" class="nav-button">Home</a>
+      <a href="/overview/" class="nav-button">TDB</a>
+      <a href="/overview/" class="nav-button">TBD</a>
+      <a href="/overview/" class="nav-button">TBD</a>
+      <a href="/auth/logout" class="nav-button logout">Logout</a>
+    </nav>
+
     <main>
-        <h2>Home Page</h2>
+      <div class="user-info">
+        <h2>Overview</h2>
         <p>ID: <%= user.id %></p>
         <p>Role: <%= user.role %></p>
         <p>Department: <%= user.department %></p>
+      </div>
     </main>
+
+    <footer>University of Belize © 2025 | UB EnrollEase</footer>
 </body>
 </html>
