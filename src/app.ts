@@ -6,6 +6,7 @@ import path from "path";
 import { Student } from "./models/student";
 import { Professor } from "./models/professor";
 import { Courses } from "./models/courses";
+import { CourseOffering } from "./models/courseOffering";
 import { Enrollment } from "./models/enrollment";
 
 const app = express();
@@ -14,7 +15,7 @@ const app = express();
 app.set("views", path.join(__dirname, "../src/views"));
 app.set("view engine", "ejs");
 
-// Built‑in middleware
+// Built-in middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,6 +31,7 @@ app.get("/", (req: Request, res: Response) => {
     "pw123",
     "STU1001"
   );
+
   const professor = new Professor(
     "P1",
     "Jane",
@@ -39,26 +41,37 @@ app.get("/", (req: Request, res: Response) => {
     "pw456",
     "FAC2001"
   );
+
   const aiCourse = new Courses(
-    "Intro to AI",
-    "AI101",
-    "Basics of Artificial Intelligence.",
-    professor.getName(),
-    "MWF 10:00-11:00",
-    "2025-01-15",
-    "2025-05-15",
-    "10:00 AM",
-    "Room 101",
-    3,
-    30,
-    [],
-    []
+    "Intro to AI", // courseName
+    "AI101", // courseCode
+    "Basics of Artificial Intelligence.", // description
+    professor.getName(), // instructor
+    "MWF 10:00-11:00", // schedule
+    "2025-01-15", // startDate
+    "2025-05-15", // endDate
+    "10:00 AM", // time
+    "Room 101", // location
+    3, // credits
+    30, // capacity
+    [], // prerequisites
+    [] // corequisites
   );
 
+  // Create a CourseOffering (hard-code schedule here too)
+  const offering = new CourseOffering(
+    1, // offeringID (number)
+    aiCourse.courseCode, // courseID (string)
+    1, // semesterID (number)
+    professor.getName(), // instructor
+    "MWF 10:00-11:00" // schedule (literal)
+  );
+
+  // Enroll the student
   const enrollment = new Enrollment(
-    student.id,
-    aiCourse.courseCode,
-    "2025-02-01"
+    student.id, // studentID (string)
+    offering.getOfferingID(), // offeringID (number)
+    "2025-02-01" // enrollmentDate
   );
   enrollment.setGrade("A");
 

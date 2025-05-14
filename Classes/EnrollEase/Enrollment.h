@@ -12,19 +12,21 @@ namespace EnrollEase {
     class Enrollment {
     private:
         std::string studentID;
-        std::string courseID;
+        int         offeringID;      // was courseID
         std::string enrollmentDate;
-        char grade;
+        char        grade;
 
     public:
         // Constructor
-        Enrollment(std::string sID, const std::string& cID, const std::string& date);
+        Enrollment(const std::string& sID,
+                   int offID,
+                   const std::string& date);
 
         // Getters
         std::string getStudentID() const;
-        std::string getCourseID() const;
+        int         getOfferingID() const;
         std::string getEnrollmentDate() const;
-        char getGrade() const;
+        char        getGrade() const;
 
         // Setter
         void setGrade(char newGrade);

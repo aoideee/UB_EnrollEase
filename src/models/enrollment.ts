@@ -3,7 +3,7 @@ export class Enrollment {
 
   constructor(
     public studentID: string,
-    public courseID: string,
+    public offeringID: number,
     public enrollmentDate: string
   ) {}
 
@@ -15,8 +15,12 @@ export class Enrollment {
     return this.studentID;
   }
 
-  getCourseID(): string {
-    return this.courseID;
+  getOfferingID(): number {
+    return this.offeringID;
+  }
+
+  getEnrollmentDate(): string {
+    return this.enrollmentDate;
   }
 
   getGrade(): string | undefined {

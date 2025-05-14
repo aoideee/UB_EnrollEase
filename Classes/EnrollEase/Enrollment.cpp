@@ -9,15 +9,21 @@ using namespace std;
 
 namespace EnrollEase {
 
-    Enrollment::Enrollment(string sID, const string& cID, const string& date)
-        : studentID(sID), courseID(cID), enrollmentDate(date), grade('-') {}
+    Enrollment::Enrollment(const string& sID,
+                           int offID,
+                           const string& date)
+      : studentID(sID),
+        offeringID(offID),
+        enrollmentDate(date),
+        grade('-')
+    {}
 
     string Enrollment::getStudentID() const {
         return studentID;
     }
 
-    string Enrollment::getCourseID() const {
-        return courseID;
+    int Enrollment::getOfferingID() const {
+        return offeringID;
     }
 
     string Enrollment::getEnrollmentDate() const {
@@ -30,9 +36,11 @@ namespace EnrollEase {
 
     void Enrollment::setGrade(char newGrade) {
         grade = newGrade;
-        cout << "[ENROLLMENT] Grade updated to '" << grade
+        cout << "[ENROLLMENT] Grade updated to '"
+             << grade
              << "' for student " << studentID
-             << " in course " << courseID << ".\n";
+             << " in offering " << offeringID
+             << ".\n";
     }
 
 }
