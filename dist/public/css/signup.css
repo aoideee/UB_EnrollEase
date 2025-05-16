@@ -1,4 +1,5 @@
 /* Signup Page - Modern CSS Grid & Flexbox Implementation */
+/* Signup Page - Modern CSS Grid & Flexbox Implementation */
 :root {
   --signup-primary: purple;
   --signup-primary-hover: darkorchid;
@@ -194,4 +195,4 @@ select:focus {
   .login-link {
     flex-direction: column;
   }
-}
+} 

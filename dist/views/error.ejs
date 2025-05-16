@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error</title>
+</head>
+<body>
+  <h1>Oops! Something went wrong.</h1>
+  <p><%= message %></p>
+
+  <% if (typeof error !== 'undefined' && error.stack) { %>
+    <pre><%= error.stack %></pre>
+  <% } %>
+</body>
+</html>

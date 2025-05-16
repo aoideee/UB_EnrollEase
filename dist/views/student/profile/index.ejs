@@ -3,72 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="/css/profile.css">
+    <title>Profile | UB EnrollEase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/profile.css">
+
 </head>
 <body>
     <header>
-        <h1>Profile</h1>
-        <a href="/student">Back to Home</a>
+        <div class="header-content">
+            <div>
+                <h1>Student Profile</h1>
+            </div>
+            <a href="/student" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
     </header>
 
     <main>
-        <form action="/profile" method="POST">
-            <div class="profile-section">
-                <label>Name Prefix:</label>
-                <span>Mr./Ms.</span>
-            </div>
-            <div class="profile-section">
-                <label>First Name:</label>
-                <span><%= user.first_name %></span>
-            </div>
-            <div class="profile-section">
-                <label>Last Name:</label>
-                <span><%= user.last_name %></span>
-            </div>
-            <div class="profile-section">
-                <label>Mailing Address:</label>
-                <span><%= user.address %>, <%= user.city %>, <%= user.state %>, <%= user.country %></span>
-            </div>
-            <div class="profile-section">
-                <label>Email Address:</label>
-                <span><%= user.email %></span>
-            </div>
-            <div class="profile-section">
-                <label>Birth Date:</label>
-                <span><%= user.birth_date %></span>
-            </div>
-            <div class="profile-section">
-                <label>Gender:</label>
-                <span><%= user.gender %></span>
-            </div>
-            <div class="profile-section">
-                <label>Ethnicity:</label>
-                <span><%= user.ethnicity %></span>
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="profile-name">
+                    <h2><%= user.first_name %> <%= user.last_name %></h2>
+                    <p><i class="fas fa-id-card"></i> ID: <%= user.id %></p>
+                    <p><i class="fas fa-graduation-cap"></i> <%= user.degreeCode %></p>
+                </div>
             </div>
 
-            <h2>Edit Username/Password</h2>
-            <% if (error) { %>
-                <p class="error"><%= error %></p>
-            <% } %>
-            <div class="profile-section">
-                <label for="username">User Name:</label>
-                <input type="text" id="username" name="username" value="<%= user.email %>" required>
+            <div class="profile-content">
+                <h2 class="section-title"><i class="fas fa-user-circle"></i> Personal Information</h2>
+                
+                <div class="info-group">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-user-tag"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Name Prefix</div>
+                            <div class="info-value">Mr./Ms.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-signature"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">First Name</div>
+                            <div class="info-value"><%= user.first_name %></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-signature"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Last Name</div>
+                            <div class="info-value"><%= user.last_name %></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Mailing Address</div>
+                            <div class="info-value"><%= user.address %>, <%= user.city %>, <%= user.state %>, <%= user.country %></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Email Address</div>
+                            <div class="info-value"><%= user.email %></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Birth Date</div>
+                            <div class="info-value"><%= user.birth_date %></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-venus-mars"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Gender</div>
+                            <div class="info-value"><%= user.gender %></div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-globe-americas"></i></div>
+                        <div class="info-content">
+                            <div class="info-label">Ethnicity</div>
+                            <div class="info-value"><%= user.ethnicity %></div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="/profile" method="POST">
+                    <h2 class="section-title"><i class="fas fa-lock"></i> Account Security</h2>
+                    
+                    <% if (error) { %>
+                        <div class="error">
+                            <i class="fas fa-exclamation-circle"></i> <%= error %>
+                        </div>
+                    <% } %>
+                    
+                    <div class="form-group">
+                        <label for="username" class="form-label">Username (Email)</label>
+                        <div class="input-group">
+                            <input type="email" id="username" name="username" class="form-control" value="<%= user.email %>" required>
+                            <i class="fas fa-at input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group password-toggle">
+                        <label for="password" class="form-label">New Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                        <i class="fas fa-eye toggle-icon" onclick="togglePassword('password')"></i>
+                    </div>
+                    
+                    <div class="form-group password-toggle">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                        <i class="fas fa-eye toggle-icon" onclick="togglePassword('confirmPassword')"></i>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> Update Account
+                    </button>
+                </form>
             </div>
-            <div class="profile-section">
-                <label for="password">New Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="profile-section">
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-            </div>
-            <button type="submit">Update</button>
-        </form>
+        </div>
     </main>
 
     <footer>
         University of Belize © 2025 | UB EnrollEase
     </footer>
+
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const icon = field.nextElementSibling;
+            
+            if (field.type === "password") {
+                field.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                field.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        // Add input validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('Passwords do not match!');
+                return false;
+            }
+            
+            if (password.length < 8) {
+                e.preventDefault();
+                alert('Password must be at least 8 characters long!');
+                return false;
+            }
+        });
+    </script>
 </body>
 </html>
