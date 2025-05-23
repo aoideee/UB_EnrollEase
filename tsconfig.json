@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2020",
+<<<<<<< HEAD
     "module": "commonjs",
     "rootDir": "./src",
     "outDir": "./dist",
@@ -16,3 +17,15 @@
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
+=======
+    "module": "commonjs", // CommonJS makes life easiest with Express/EJS
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true, // allow `import express from "express"`
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"]
+}
+>>>>>>> 3c2075c122738a12ae63f376a144582430dd3f95

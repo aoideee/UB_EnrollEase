@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 type LetterGrade = 'A' | 'B' | 'C' | 'D' | 'F';
 
 export class Enrollment {
@@ -56,3 +57,34 @@ export class Enrollment {
         return this._grade !== undefined;
     }
 }
+=======
+export class Enrollment {
+  private grade?: string;
+
+  constructor(
+    public studentID: string,
+    public offeringID: number,
+    public enrollmentDate: string
+  ) {}
+
+  setGrade(grade: string): void {
+    this.grade = grade;
+  }
+
+  getStudentID(): string {
+    return this.studentID;
+  }
+
+  getOfferingID(): number {
+    return this.offeringID;
+  }
+
+  getEnrollmentDate(): string {
+    return this.enrollmentDate;
+  }
+
+  getGrade(): string | undefined {
+    return this.grade;
+  }
+}
+>>>>>>> 3c2075c122738a12ae63f376a144582430dd3f95

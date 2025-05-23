@@ -1,4 +1,5 @@
 export class Courses {
+<<<<<<< HEAD
     constructor(
         public readonly courseId: string,
         public courseName: string,
@@ -39,4 +40,29 @@ export class Courses {
     hasSeatAvailable(currentEnrollment: number): boolean {
         return currentEnrollment < this.courseCapacity;
     }
+=======
+  constructor(
+    public courseName: string,
+    public courseCode: string,
+    public courseDescription: string,
+    public courseInstructor: string,
+    public courseSchedule: string,
+    public startDate: string,
+    public endDate: string,
+    public time: string,
+    public courseLocation: string,
+    public courseCredits: number,
+    public courseCapacity: number,
+    public prerequisites: string[],
+    public corequisites: string[]
+  ) {}
+
+  getCourseCode(): string {
+    return this.courseCode;
+  }
+
+  getCourseName(): string {
+    return this.courseName;
+  }
+>>>>>>> 3c2075c122738a12ae63f376a144582430dd3f95
 }

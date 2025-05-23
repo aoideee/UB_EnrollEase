@@ -1,0 +1,3 @@
+/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build/CMakeFiles/EnrollEase.dir
+/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build/CMakeFiles/edit_cache.dir
+/home/eudora/Documents/school/2024-2/OOP/UB_EnrollEase/Classes/build/CMakeFiles/rebuild_cache.dir
