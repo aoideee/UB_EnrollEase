@@ -1,0 +1,68 @@
+<!-- File: src/views/admin/courses/edit.ejs -->
+
+<%- include('../../partials/header', {
+    title: 'Edit Course',
+    pageCss: ['/css/overview.css']
+  }) %>
+  
+  <main>
+    <h1>Edit Course</h1>
+    <form action="/admin/courses/<%= course.id %>" method="POST">
+      <div>
+        <label>Code
+          <input name="code" value="<%= course.code %>" required>
+        </label>
+      </div>
+      <div>
+        <label>Title
+          <input name="title" value="<%= course.title %>" required>
+        </label>
+      </div>
+      <div>
+        <label>Description
+          <textarea name="description"><%= course.description %></textarea>
+        </label>
+      </div>
+      <div>
+        <label>Program
+          <input name="program" value="<%= course.program %>">
+        </label>
+      </div>
+      <div>
+        <label>Credits
+          <input type="number" name="credits" min="0" value="<%= course.credits %>">
+        </label>
+      </div>
+      <div>
+        <label>Capacity
+          <input type="number" name="capacity" min="0" value="<%= course.capacity %>">
+        </label>
+      </div>
+      <div>
+        <label>Schedule
+          <input name="schedule" value="<%= course.schedule %>">
+        </label>
+      </div>
+      <div>
+        <label>Instructor ID
+          <input name="professor_id" value="<%= course.professor_id %>">
+        </label>
+      </div>
+      <div>
+        <label>Enroll Deadline
+          <input type="date" name="enroll_deadline"
+                 value="<%= course.enroll_deadline ? course.enroll_deadline.toISOString().split('T')[0] : '' %>">
+        </label>
+      </div>
+      <div>
+        <label>Drop Deadline
+          <input type="date" name="drop_deadline"
+                 value="<%= course.drop_deadline ? course.drop_deadline.toISOString().split('T')[0] : '' %>">
+        </label>
+      </div>
+      <button type="submit" class="btn">Save</button>
+      <a href="/admin/courses">Cancel</a>
+    </form>
+  </main>
+  
+  <%- include('../../partials/footer') %>  

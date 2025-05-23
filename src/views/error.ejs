@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Error</title>
-</head>
-<body>
-  <h1>Oops! Something went wrong.</h1>
-  <p><%= message %></p>
+<!-- File: src/views/error.ejs -->
 
-  <% if (typeof error !== 'undefined' && error.stack) { %>
-    <pre><%= error.stack %></pre>
-  <% } %>
-</body>
-</html>
+<%- include('partials/header', {
+  title: 'Error',
+  pageCss: ['/css/style.css']
+}) %>
+
+<main class="landing-container">
+  <div class="auth-container">
+    <h1>Oops! Something went wrong.</h1>
+    <p><%= message %></p>
+    <% if (error && error.stack) { %>
+      <pre><%= error.stack %></pre>
+    <% } %>
+    <p><a href="/">← Back to Home</a></p>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

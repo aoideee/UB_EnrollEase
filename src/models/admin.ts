@@ -1,20 +1,13 @@
 // src/models/Admin.ts
-import { User } from './user.js';
+
+import { User } from "./user";
 
 export class Admin extends User {
-  constructor(
-    id: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    public readonly adminID: string, // Marked as readonly as it shouldn't change
-    public accessLevel: number
-  ) {
-    super(id, firstName, lastName, email, password, 'admin'); // Explicit role
+  constructor(id: string, name: string, email: string, role: string = "admin") {
+    super(id, name, email, role);
   }
 
-  override getRole(): string {
+  public override getRole(): string {
     return "admin";
   }
 }

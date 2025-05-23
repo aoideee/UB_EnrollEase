@@ -1,0 +1,39 @@
+ <!-- File: src/views/student/courses/results.ejs -->
+
+ <%- include('../../partials/header', {
+  title: 'Search Results',
+  pageCss: ['/css/dashboard.css','/css/student.css']
+}) %>
+
+<main>
+  <h1>Results</h1>
+  <% if (!courses.length) { %>
+    <p>No courses found.</p>
+  <% } else { %>
+    <table>
+      <thead><tr>
+        <th>Code</th><th>Title</th><th>Prog</th>
+        <th>Cap</th><th>Enrolled</th><th>Action</th>
+      </tr></thead>
+      <tbody>
+        <% courses.forEach(c => { %>
+          <tr>
+            <td><%= c.code %></td>
+            <td><%= c.title %></td>
+            <td><%= c.program %></td>
+            <td><%= c.capacity %></td>
+            <td><%= c.enrolled_count %></td>
+            <td>
+              <form action="/students/courses/<%= c.id %>/enroll" method="POST">
+                <button type="submit">Enroll</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+  <a href="/students/courses">New Search</a>
+</main>
+
+<%- include('../../partials/footer') %>

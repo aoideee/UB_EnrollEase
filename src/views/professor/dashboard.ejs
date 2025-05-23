@@ -1,0 +1,22 @@
+<!-- File: src/views/professor/dashboard.ejs -->
+
+<%- include('../partials/header', {
+    title: 'Professor Dashboard',
+    pageCss: ['/css/dashboard.css']
+  }) %>
+  
+  <main>
+    <h1>Hello, <%= user.name %>!</h1>
+    <h2>Your Courses</h2>
+    <ul>
+      <% courses.forEach(c => { %>
+        <li>
+          <a href="/professors/courses/<%= c.id %>">
+            <%= c.code %> — <%= c.title %>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+  
+  <%- include('../partials/footer') %>  

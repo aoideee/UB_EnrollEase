@@ -1,0 +1,59 @@
+<!-- File: src/views/student/auth/register.ejs -->
+
+<%- include('../partials/header', {
+  title: 'Sign Up',
+  pageCss: ['/css/style.css', '/css/signup.css']
+}) %>
+
+<main class="landing-container">
+  <div class="auth-container">
+    <div class="university-header">
+      <img
+        src="/images/logo.jpg"
+        alt="University of Belize | Education Empowers a Nation"
+        width="275"
+        height="325"
+      />
+      <h2>Create Your Account</h2>
+    </div>
+
+    <% if (error) { %>
+      <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <form action="/auth/register" method="POST" class="signup-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="role">I am a:</label>
+        <select id="role" name="role" required>
+          <option value="">Select role</option>
+          <option value="student">Student</option>
+          <option value="professor">Professor</option>
+          <option value="admin">Administrator</option>
+        </select>
+      </div>
+
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+
+    <p class="login-link">
+      Already have an account? <a href="/auth/login">Log in</a>
+    </p>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

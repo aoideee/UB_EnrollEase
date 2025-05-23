@@ -1,0 +1,31 @@
+<!-- File: src/views/admin/deadlines/edit.ejs -->
+<%- include('../../partials/header', {
+    title: 'Edit Deadline',
+    pageCss: ['/css/overview.css']
+  }) %>
+  
+  <main>
+    <h1>
+      Edit 
+      <%= deadline.type.charAt(0).toUpperCase() + deadline.type.slice(1) %> 
+      Deadline
+    </h1>
+  
+    <form action="/admin/deadlines/<%= deadline.type %>" method="POST">
+      <div>
+        <label for="date">Date</label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          value="<%= deadline.date.toISOString().split('T')[0] %>"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn">Save</button>
+      <a href="/admin/deadlines">Cancel</a>
+    </form>
+  </main>
+  
+  <%- include('../../partials/footer') %>  

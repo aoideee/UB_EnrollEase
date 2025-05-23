@@ -1,0 +1,22 @@
+<!-- File: src/views/student/schedule.ejs -->
+
+<%- include('../../partials/header', {
+    title:'My Schedule',
+    pageCss:['/css/dashboard.css','/css/student.css']
+  }) %>
+  <main>
+    <h1>My Schedule</h1>
+    <table>
+      <thead><tr><th>Code</th><th>Title</th><th>When/Where</th></tr></thead>
+      <tbody>
+      <% courses.forEach(c => { %>
+        <tr>
+          <td><%=c.code%></td>
+          <td><%=c.title%></td>
+          <td><%=c.schedule%></td>
+        </tr>
+      <% }) %>
+      </tbody>
+    </table>
+  </main>
+  <%- include('../../partials/footer') %>  

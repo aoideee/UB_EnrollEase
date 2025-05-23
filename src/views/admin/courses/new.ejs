@@ -1,0 +1,46 @@
+<!-- File: src/views/admin/courses/new.ejs -->
+
+<%- include('../../partials/header', {
+    title: 'New Course',
+    pageCss: ['/css/overview.css']
+  }) %>
+  
+  <main>
+    <h1>Create Course</h1>
+    <form action="/admin/courses" method="POST">
+      <div>
+        <label>Code<input name="code" required></label>
+      </div>
+      <div>
+        <label>Title<input name="title" required></label>
+      </div>
+      <div>
+        <label>Description<textarea name="description"></textarea></label>
+      </div>
+      <div>
+        <label>Program<input name="program"></label>
+      </div>
+      <div>
+        <label>Credits<input type="number" name="credits" min="0"></label>
+      </div>
+      <div>
+        <label>Capacity<input type="number" name="capacity" min="0"></label>
+      </div>
+      <div>
+        <label>Schedule<input name="schedule"></label>
+      </div>
+      <div>
+        <label>Instructor ID<input name="professor_id"></label>
+      </div>
+      <div>
+        <label>Enroll Deadline<input type="date" name="enroll_deadline"></label>
+      </div>
+      <div>
+        <label>Drop Deadline<input type="date" name="drop_deadline"></label>
+      </div>
+      <button type="submit" class="btn">Create</button>
+      <a href="/admin/courses">Cancel</a>
+    </form>
+  </main>
+  
+  <%- include('../../partials/footer') %>  

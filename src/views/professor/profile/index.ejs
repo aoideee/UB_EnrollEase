@@ -1,0 +1,26 @@
+<!-- File: src/views/professor/profile/index.ejs -->
+
+<%- include('../../partials/header', {
+    title: 'Faculty Profile',
+    pageCss: ['/css/profile.css']
+  }) %>
+  
+  <main>
+    <div class="profile-container">
+      <div class="profile-sidebar">
+        <div class="profile-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="profile-name">
+          <h2><%= user.name %></h2>
+          <p><i class="fas fa-id-card"></i> ID: <%= user.id %></p>
+        </div>
+      </div>
+  
+      <div class="profile-content">
+        <h2 class="section-title"><i class="fas fa-info-circle"></i> Info</h2>
+        <p><strong>Department:</strong> <%= user.department || 'TBD' %></p>
+        <p><strong>Office:</strong> <%= user.officeLocation || 'TBD' %></p>
+      </div>
+    </div>
+  </main>
+  
+  <%- include('../../partials/footer') %>  

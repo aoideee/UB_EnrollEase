@@ -1,60 +1,77 @@
-import express from 'express';
-import session from 'express-session';
-import path from 'path';
-import { connectDB } from './config/db.js';
-import indexRouter from './routes/indexRoutes.js';
-import adminRouter from './routes/adminRoutes.js';
-import authRouter from './routes/authRoutes.js';
-import profileRoutes from './routes/profileRoutes.js';
+// src/app.ts
+import express from "express";
+import session from "express-session";
+import flash from "connect-flash";
+import path from "path";
+import dotenv from "dotenv";
+import authRouter from "./routes/auth";
+import studentRouter from "./routes/students";
+import professorRouter from "./routes/professors";
+import adminRouter from "./routes/admin";
+import { Request, Response, NextFunction } from "express";
 
+dotenv.config();
 const app = express();
 
-// Session configuration
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'your-secret-key',
+// ——— Session + Flash ———
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "your-fallback-secret",
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 24 * 60 * 60 * 1000 // 1 day
-    }
-}));
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+    },
+  })
+);
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});
 
-// Database connection
-connectDB();
-
-// Middleware
+// ——— Body parsers ———
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(process.cwd(), "dist/public")));
 
-// View engine setup
-app.set('view engine', 'ejs');
-app.set("views", [path.join(process.cwd(), 'dist/views'),
-path.join(process.cwd(), 'dist/views/student'),
-path.join(process.cwd(), 'dist/views/overview'),
-path.join(process.cwd(), 'dist/views/admin/'),
-path.join(process.cwd(), 'dist/views/partials/')]);
+// ——— Static assets ———
+const staticDir =
+  process.env.NODE_ENV === "production"
+    ? path.join(__dirname, "public")
+    : path.join(process.cwd(), "src", "public");
+app.use(express.static(staticDir));
 
-// Routes
-app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/admin', adminRouter);
-app.use('/student', profileRoutes);
+// ——— Views ———
+app.set("view engine", "ejs");
+const viewsDir =
+  process.env.NODE_ENV === "production"
+    ? path.join(__dirname, "views")
+    : path.join(process.cwd(), "src", "views");
+app.set("views", viewsDir);
+app.locals.basedir = viewsDir;
 
-// Error handling
-app.use((req, res, next) => {
-    res.status(404).render('error', { message: 'Page not found' });
+// ——— Routes ———
+app.get("/", (_req, res) => res.redirect("/auth/login"));
+app.use("/auth", authRouter);
+app.use("/students", studentRouter);
+app.use("/professors", professorRouter);
+app.use("/admin", adminRouter);
+
+// ——— 404 + Error handlers ———
+app.use((req, res) =>
+  res.status(404).render("error", { message: "Page not found" })
+);
+app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).render("error", { message: "Something went wrong!" });
 });
 
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.error(err.stack);
-    res.status(500).render('error', { message: 'Something went wrong!' });
-});
-
+// ——— Start server ———
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port http://localhost:${PORT}`);
-});
+app.listen(PORT, () =>
+  console.log(`Server running at http://localhost:${PORT}`)
+);
 
 export default app;

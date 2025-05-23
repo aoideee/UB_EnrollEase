@@ -1,0 +1,23 @@
+<!-- File: src/views/student/grades.ejs -->
+
+<%- include('../partials/header', {
+  title: 'My Grades',
+  pageCss: ['/css/dashboard.css','/css/student.css']
+}) %>
+
+<main>
+  <h1>My Grades</h1>
+  <table>
+    <thead><tr><th>Course</th><th>Grade</th></tr></thead>
+    <tbody>
+      <% enrollments.forEach(e => { %>
+        <tr>
+          <td><%= e.course_code %> — <%= e.course_title %></td>
+          <td><%= e.grade || 'N/A' %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+
+<%- include('../partials/footer') %>

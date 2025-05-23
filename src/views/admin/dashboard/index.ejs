@@ -1,36 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <link rel="icon" href="/images/logo.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/dashboard.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Welcome, <%= user.name %>!</h1>
-      <p>ID: <%= user.id %> | <%= user.accessLevel %></p>
-    </header>
+<!-- File: src/views/admin/dashboard/index.ejs -->
 
-    <nav class="mobile-nav">
-      <a href="/admin/dashboard" class="nav-button">Home</a>
-      <a href="#" class="nav-button">TDB</a>
-      <a href="#" class="nav-button">TBD</a>
-      <a href="#" class="nav-button">TBD</a>
-      <a href="/auth/logout" class="nav-button logout">Logout</a>
-    </nav>
+<%- include('../../partials/header', {
+  title: 'Admin Dashboard',
+  pageCss: ['/css/dashboard.css']
+}) %>
 
-    <main>
-      <div class="user-info">
-        <h2>Admin Dashboard</h2>
-        <p>ID: <%= user.id %></p>
-        <p>Role: <%= user.role %></p>
-        <p>Access Level: <%= user.accessLevel %></p>
-        <p>Manage users, view reports, and configure settings here.</p>
-      </div>
-    </main>
+<main>
+  <h1>Welcome, <%= user.name %>!</h1>
+  <ul>
+    <li><a href="/admin/users">Manage Users</a></li>
+    <li><a href="/admin/courses">Manage Courses</a></li>
+    <li><a href="/admin/deadlines">Set Deadlines</a></li>
+  </ul>
+</main>
 
-    <footer>University of Belize © 2025 | UB EnrollEase</footer>
-  </body>
-</html>
+<%- include('../../partials/footer') %>
+

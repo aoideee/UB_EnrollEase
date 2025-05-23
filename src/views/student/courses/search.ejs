@@ -1,0 +1,29 @@
+<!-- File: src/views/student/courses/search.ejs -->
+
+<%- include('../../partials/header', {
+  title: 'Course Search',
+  pageCss: ['/css/dashboard.css','/css/student.css']
+}) %>
+
+<main>
+  <h1>Search Courses</h1>
+  <form action="/students/courses/search" method="POST">
+    <div><label>Keyword<input type="text" name="keyword" value="<%= keyword %>"></label></div>
+    <div>
+      <label>Program
+        <select name="program">
+          <option value="">All</option>
+          <% programs.forEach(p => { %>
+            <option value="<%= p %>" <%= selectedProgram===p?'selected':'' %>>
+              <%= p %>
+            </option>
+          <% }) %>
+        </select>
+      </label>
+    </div>
+    <button type="submit">Search</button>
+    <a href="/students/dashboard">Back</a>
+  </form>
+</main>
+
+<%- include('../../partials/footer') %>

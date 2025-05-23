@@ -1,2 +1,75 @@
+<!-- src/views/partials/header.ejs -->
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title><%= title || 'UB EnrollEase' %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/student.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/forgot-password.css" />
+    <link rel="stylesheet" href="/css/overview.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="logo-container">
+        <% if (typeof user !== 'undefined' && user) { %> <% if (user.role ===
+        'student') { %>
+        <a href="/students/dashboard"
+          ><img src="/images/logo.jpg" class="logo" alt="UB Logo"
+        /></a>
+        <% } else if (user.role === 'professor') { %>
+        <a href="/professors/dashboard"
+          ><img src="/images/logo.jpg" class="logo" alt="UB Logo"
+        /></a>
+        <% } else if (user.role === 'admin') { %>
+        <a href="/admin/dashboard"
+          ><img src="/images/logo.jpg" class="logo" alt="UB Logo"
+        /></a>
+        <% } %> <% } else { %>
+        <a href="/auth/login"
+          ><img src="/images/logo.jpg" class="logo" alt="UB Logo"
+        /></a>
+        <% } %>
+      </div>
+      <nav>
+        <% if (typeof user !== 'undefined' && user) { %> <% if
+        (user.role==='student') { %>
+        <a href="/students/dashboard">Home</a>
+        <a href="/students/courses">Courses</a>
+        <a href="/students/registrations">Regs</a>
+        <a href="/students/grades">Grades</a>
+        <a href="/students/profile">Profile</a>
+        <% } else if (user.role==='professor') { %>
+        <a href="/professors/dashboard">Home</a>
+        <a href="/professors/courses">My Courses</a>
+        <a href="/professors/profile">Profile</a>
+        <% } else if (user.role==='admin') { %>
+        <a href="/admin/dashboard">Home</a>
+        <a href="/admin/users">Users</a>
+        <a href="/admin/courses">Courses</a>
+        <a href="/admin/deadlines">Deadlines</a>
+        <% } %>
+        <a href="/auth/logout" class="logout">Logout</a>
+        <% } else { %>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/signup">Signup</a>
+        <% } %>
+      </nav>
 
+      <% if (typeof successMsg !== 'undefined' && successMsg) { %>
+      <div class="alert alert-success"><%= successMsg %></div>
+      <% } %> <% if (typeof errorMsg !== 'undefined' && errorMsg) { %>
+      <div class="alert alert-danger"><%= errorMsg %></div>
+      <% } %>
+    </header>
+  </body>
+</html>

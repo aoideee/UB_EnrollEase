@@ -1,26 +1,18 @@
 // src/models/professor.ts
-import { User } from './user.js';
+
+import { User } from "./user";
 
 export class Professor extends User {
   constructor(
     id: string,
-    firstName: string,
-    lastName: string,
+    name: string,
     email: string,
-    password: string, // Changed from password to passwordHash
-    public readonly facultyID: string, // Marked as readonly
-    public department: string,
-    public officeLocation?: string // Made optional as not all professors may have an office
+    role: string = "professor"
   ) {
-    super(id, firstName, lastName, email, password, 'professor'); // Explicit role
-  }
-
-  // Optional: Add method to get full title
-  public override getName(): string {
-    return `Prof. ${this.lastName}`;
+    super(id, name, email, role);
   }
 
   public override getRole(): string {
-    return "professor"; // Consistent lowercase
+    return "professor";
   }
 }

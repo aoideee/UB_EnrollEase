@@ -1,0 +1,21 @@
+<!-- src/views/professor/courses.ejs -->
+
+<%- include('../partials/header', {
+  title: 'My Courses',
+  pageCss: ['/css/dashboard.css']
+}) %>
+
+<main>
+  <h1>My Courses</h1>
+  <ul>
+    <% courses.forEach(c => { %>
+      <li>
+        <a href="/professors/courses/<%= c.id %>">
+          <%= c.title %> (<%= c.code %>)
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,26 @@
+<!-- File: src/views/professor/courses/details.ejs -->
+
+<%- include('../../partials/header',{ title: course.title }) %>
+<main>
+  <h1><%= course.code %> — <%= course.title %></h1>
+  <table>
+    <thead><tr><th>Student</th><th>Email</th><th>Grade</th><th>Action</th></tr></thead>
+    <tbody>
+      <% students.forEach(s => { %>
+        <tr>
+          <td><%= s.name %></td>
+          <td><%= s.email %></td>
+          <td><%= s.grade || 'N/A' %></td>
+          <td>
+            <form action="/professors/courses/<%= course.id %>/grades" method="POST">
+              <input type="hidden" name="studentId" value="<%= s.id %>">
+              <input name="grade" value="<%= s.grade || '' %>" placeholder="A, B+" required>
+              <button>Save</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+<%- include('../../partials/footer') %>

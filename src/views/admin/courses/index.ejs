@@ -1,0 +1,48 @@
+<!-- File: src/views/admin/courses/index.ejs -->
+
+<%- include('../../partials/header', {
+    title: 'Manage Courses',
+    pageCss: ['/css/overview.css']
+  }) %>
+  
+  <main>
+    <h1>Manage Courses</h1>
+    <a href="/admin/courses/new" class="btn">+ New Course</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Title</th>
+          <th>Program</th>
+          <th>Credits</th>
+          <th>Capacity</th>
+          <th>Instructor ID</th>
+          <th>Enroll Deadline</th>
+          <th>Drop Deadline</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% courses.forEach(course => { %>
+          <tr>
+            <td><%= course.code %></td>
+            <td><%= course.title %></td>
+            <td><%= course.program %></td>
+            <td><%= course.credits %></td>
+            <td><%= course.capacity %></td>
+            <td><%= course.professor_id || '—' %></td>
+            <td><%= course.enroll_deadline ? course.enroll_deadline.toISOString().split('T')[0] : '—' %></td>
+            <td><%= course.drop_deadline ? course.drop_deadline.toISOString().split('T')[0] : '—' %></td>
+            <td>
+              <a href="/admin/courses/<%= course.id %>/edit">Edit</a>
+              <form action="/admin/courses/<%= course.id %>/delete" method="POST" style="display:inline">
+                <button type="submit" onclick="return confirm('Delete this course?')">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+  
+  <%- include('../../partials/footer') %>  

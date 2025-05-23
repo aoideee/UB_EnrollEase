@@ -1,0 +1,22 @@
+<!-- File: src/views/admin/users/edit.ejs -->
+
+<%- include('../../partials/header',{ title:'Edit User' }) %>
+<main>
+  <h1>Edit User</h1>
+  <form action="/admin/users/<%= user.id %>" method="POST">
+    <div><label>Name<input name="name" value="<%=user.name%>" required></label></div>
+    <div><label>Email<input type="email" name="email" value="<%=user.email%>" required></label></div>
+    <div>
+      <label>Role
+        <select name="role" required>
+          <option value="student" <%=user.role==='student'?'selected':''%>>student</option>
+          <option value="professor" <%=user.role==='professor'?'selected':''%>>professor</option>
+          <option value="admin" <%=user.role==='admin'?'selected':''%>>admin</option>
+        </select>
+      </label>
+    </div>
+    <button type="submit">Save</button>
+    <a href="/admin/users">Cancel</a>
+  </form>
+</main>
+<%- include('../../partials/footer') %>

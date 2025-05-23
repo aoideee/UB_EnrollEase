@@ -1,0 +1,76 @@
+<!-- File: src/views/student/auth/login.ejs -->
+
+<%- include('../partials/header', {
+  title: 'Login',
+  pageCss: ['/css/style.css', '/css/forgot-password.css']
+}) %>
+
+<main class="landing-container">
+  <div class="auth-container">
+    <div class="university-header">
+      <img
+        src="/images/logo.jpg"
+        alt="University of Belize | Education Empowers a Nation"
+        width="275"
+        height="325"
+      />
+      <h2>Welcome Back!</h2>
+    </div>
+
+    <% if (error) { %>
+      <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <form action="/auth/login" method="POST" class="signup-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="username"
+        />
+      </div>
+
+      <!-- Password field with eye toggle -->
+      <div class="form-group password-toggle">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          autocomplete="current-password"
+        />
+        <i
+          class="fas fa-eye toggle-icon"
+          style="cursor:pointer; position:absolute; right:1rem; top:2.5rem;"
+          onclick="togglePassword('password')"
+        ></i>
+      </div>
+
+      <button type="submit" class="login-btn">Log In</button>
+    </form>
+
+    <div class="forgot-password-container">
+      <a href="/auth/forgot-password" class="forgot-password">
+        Forgot password?
+      </a>
+    </div>
+
+    <p class="signup-link">
+      Don’t have an account? <a href="/auth/signup">Sign up</a>
+    </p>
+  </div>
+</main>
+
+<!-- Toggle script goes just before the footer include -->
+<script>
+  function togglePassword(fieldId) {
+    const fld = document.getElementById(fieldId);
+    fld.type = fld.type === 'password' ? 'text' : 'password';
+  }
+</script>
+
+<%- include('../partials/footer') %>

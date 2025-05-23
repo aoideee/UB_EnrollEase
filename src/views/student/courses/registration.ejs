@@ -1,0 +1,34 @@
+<!-- File: src/views/student/courses/registration.ejs -->
+
+<%- include('../../partials/header', {
+  title: 'My Registrations',
+  pageCss: ['/css/dashboard.css','/css/student.css']
+}) %>
+
+<main>
+  <h1>My Registrations</h1>
+  <% if (!registrations.length) { %>
+    <p>You have no active registrations.</p>
+  <% } else { %>
+    <table>
+      <thead><tr><th>Code</th><th>Title</th><th>Schedule</th><th></th></tr></thead>
+      <tbody>
+        <% registrations.forEach(r => { %>
+          <tr>
+            <td><%= r.code %></td>
+            <td><%= r.title %></td>
+            <td><%= r.schedule %></td>
+            <td>
+              <form action="/students/courses/<%= r.id %>/drop" method="POST">
+                <button>Drop</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+  <a href="/students/courses">Browse Courses</a>
+</main>
+
+<%- include('../../partials/footer') %>
